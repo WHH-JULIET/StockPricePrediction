@@ -1,35 +1,106 @@
-# 📈 Stock Price Prediction using LSTM
+# 📈 Stock Price Prediction using LSTM (Deep Learning)
 
-This project builds a Long Short-Term Memory (LSTM) deep learning model to predict future stock prices using historical data. The model is trained on Apple (AAPL) stock prices from 2015 to 2024, obtained via the Yahoo Finance API.
-
----
-
-## 🔍 Overview
-
-- **Data**: Apple (AAPL) historical stock prices (2015–2024)
-- **Target**: `Close` price
-- **Model**: 2-layer LSTM Neural Network
-- **Libraries**: TensorFlow, scikit-learn, yfinance, NumPy, pandas, matplotlib
+A time series deep learning project that predicts stock closing prices using an LSTM (Long Short-Term Memory) neural network. This model learns patterns from Apple Inc. (AAPL) stock data between 2015 and 2024.
+Predicting future stock prices using machine learning and deep learning techniques in Python.
 
 ---
 
-## ⚙️ Installation & Setup
+## 📦 Project Files
 
-1. **Install required libraries**:
-
-   ```bash
-   pip install yfinance pandas numpy matplotlib scikit-learn tensorflow
-   from sklearn.metrics import mean_squared_error
-   import numpy as np
-
+| File Name                   | Description                                         |
+|-----------------------------|-----------------------------------------------------|
+| `stock_price_prediction.ipynb` | Jupyter Notebook containing all code for data loading, training, and evaluation |
+| `README.md`                | Project documentation                               |
 
 ---
 
-✅ **Summary**:  
-This `README.md` tells the user exactly:
-- What the project does  
-- What libraries to install  
-- How to load and process data  
-- How the model is structured  
-- How to train and evaluate it  
-- Optional improvements
+
+## 🛠️ Tech Stack
+
+- Python 🐍
+- Pandas
+- NumPy
+- Matplotlib / Seaborn
+- Scikit-learn
+- TensorFlow / Keras (for LSTM models)
+- yfinance (for fetching stock data)
+
+  
+## 🔍 Project Workflow
+
+1. ✅ Load historical stock data using `yfinance`
+2. 📊 Use `Close` price as target feature
+3. 📏 Normalize data using MinMaxScaler
+4. ⛓️ Create sequential data (lookback window = 60 time steps)
+5. 🤖 Train a 2-layer LSTM neural network
+6. 📉 Evaluate model using RMSE (Root Mean Squared Error)
+7. 🧪 Plot actual vs. predicted prices (optional)
+
+---
+
+## 📁 Project Structure
+
+- `data` – contains historical stock price CSV files  
+- `notebooks` – Jupyter notebooks for EDA and model building  
+- `models` – saved trained models  
+- `src` – Python scripts for preprocessing and modeling  
+- `README.md` – project documentation  
+- `requirements.txt` – list of required packages
+
+---
+
+## 📥 Data Collection
+
+Stock price data is fetched using the `yfinance` library and saved in CSV format for analysis and modeling.
+
+---
+
+## 📊 Exploratory Data Analysis
+
+Visualize trends, check stationarity, analyze moving averages, and understand seasonal patterns in closing prices.
+
+---
+
+## ⚙️ Data Preprocessing
+
+- Normalize the price data using MinMaxScaler  
+- Create time-series sequences using a sliding window  
+- Reshape input for compatibility with LSTM models
+
+---
+
+## 🧠 Building LSTM Model
+
+- A deep LSTM architecture with dropout regularization  
+- Trained on historical closing price sequences  
+- Compiled with mean squared error loss and Adam optimizer
+
+---
+
+## 🏋️ Model Training
+
+The model is trained for multiple epochs with a batch size of 32. Model checkpoints and loss evaluation are logged.
+
+---
+
+## 📈 Making Predictions
+
+Once trained, the model predicts future stock prices based on the latest sequences. Predictions are scaled back to original values.
+
+---
+
+## 📉 Visualization
+
+Actual vs. predicted prices are plotted to evaluate model performance visually.
+
+---
+
+## 🧪 Evaluation
+
+Mean Squared Error (MSE) is calculated to quantify prediction error. Lower MSE indicates better performance.
+
+---
+
+## 🧾 Conclusion
+
+This project demonstrates the application of deep learning techniques—particularly LSTM networks—for predicting stock prices based on historical data. While the model shows promising results in capturing trends, it's important to note that stock markets are influenced by countless external factors, and predictions should not be used for real-world trading decisions without further validation.
